@@ -44,14 +44,14 @@
                 'User cancelled login or did not fully authorize';
             }
           },
-          { scope: 'public_profile,email' },
+          { scope: 'email' },
         );
       }
 
       function getFbUserData() {
         FB.api(
           '/me',
-          { fields: 'id,first_name,last_name,email,link,gender,locale,picture' },
+          { locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture' },
           function (response) {
             document.getElementById('fbLink').setAttribute('onClick', 'fbLogout()');
             document.getElementById('fbLink').innerHTML = 'Logout from Facebbok';
@@ -92,7 +92,7 @@
     <div class="container">
       <div class="fb-box">
         <div id="status"></div>
-        <a href="javascript:void(0);" id="fbLink" onclick="fbLogin();"> Login Facebook </a>
+        <a href="javascript:void(0);" id="fblink" onclick="fbLogin();"> Login Facebook </a>
         <div class="ac-data" id="userData"></div>
       </div>
     </div>
